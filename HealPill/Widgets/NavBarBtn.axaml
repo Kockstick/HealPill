@@ -1,0 +1,21 @@
+<Border xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        x:Class="HealPill.Widgets.NavBarBtn"
+        CornerRadius="5"
+        Background="Transparent"
+        Margin="10,0, 10, 0"
+        HorizontalAlignment="Stretch"
+        PointerEntered="OnMouse_Enter"
+        PointerExited="OnMouse_Exit"
+        PointerPressed="OnMouse_Click">
+        
+        <Label
+            Name="Name_Label"
+            Content=""
+            FontWeight="Medium"
+            Foreground="Black"
+            Padding="15"/>
+</Border>

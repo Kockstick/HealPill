@@ -1,0 +1,61 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" 
+        CanResize="False"
+        x:Class="HealPill.AutorizeWindow"
+        Title="AutorizeWindow">
+    
+    <Grid
+        VerticalAlignment="Center"
+        HorizontalAlignment="Center">
+        
+        <Border
+            Width="350"
+            Height="350"
+            Margin="30"
+            CornerRadius="25"
+            Background="White">
+            
+            <Border.Effect>
+                <DropShadowEffect
+                    BlurRadius="20"
+                    Opacity="0.5"/>
+            </Border.Effect>
+        </Border>
+        
+        <StackPanel
+            Orientation="Vertical"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Spacing="10">
+            
+            <TextBox
+                Name="Login_TextBox"
+                Text="admin"
+                Padding="10"
+                Width="150"
+                VerticalContentAlignment="Center"/>
+            
+            <TextBox
+                Name="Password_TextBox"
+                Text="admin"
+                Padding="10"
+                Width="150"
+                PasswordChar="*"
+                VerticalContentAlignment="Center"/>
+            
+            <Button
+                Height="40"
+                Width="150"
+                Content="Вход"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                HorizontalAlignment="Center"
+                Background="{StaticResource Accent}"
+                Foreground="White"
+                Click="Button_OnClick"/>
+        </StackPanel>
+    </Grid>
+</Window>

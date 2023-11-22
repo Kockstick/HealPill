@@ -1,0 +1,78 @@
+<Border 
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:HealPill.Database"
+        mc:Ignorable="d"
+        x:Class="HealPill.Widgets.MedCardsTab"
+        Background="{StaticResource Primary}"
+        VerticalAlignment="Stretch"
+        HorizontalAlignment="Stretch"
+        MinWidth="1200"
+        MinHeight="100"
+        CornerRadius="25,0,0,25">
+        
+        <Border.Effect>
+                <DropShadowEffect
+                        Opacity=".5"
+                        BlurRadius="30"/>
+        </Border.Effect>
+        
+        <Grid
+                RowDefinitions="100, *">
+                
+                <Label
+                        Content="Медицинские карты"
+                        FontSize="20"
+                        FontWeight="Medium"
+                        Margin="30"
+                        VerticalAlignment="Center"/>
+                
+                <StackPanel
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Margin="30"
+                        Orientation="Horizontal"
+                        Spacing="10">
+                        
+                        <Button
+                                Name="AddBtn"
+                                Content="Добавить"
+                                FontWeight="Medium"
+                                Background="{StaticResource Accent}"
+                                Foreground="{StaticResource Primary}"
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Padding="15,10,15,10"/>
+                        
+                        <Button
+                                Name="DelBtn"
+                                Content="Удалить"
+                                FontWeight="Medium"
+                                Background="{StaticResource RedAccent}"
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Padding="15,10,15,10"/>
+                </StackPanel>
+                
+                <DataGrid
+                        Margin="50, 0, 50, 0"
+                        Name="MedCards_DataGrid"
+                        Grid.Row="1"
+                        x:DataType="models:MedCard"
+                        IsReadOnly="True"
+                        DoubleTapped="MedCards_DataGrid_OnDoubleTapped">
+                        <DataGrid.Columns>
+                                <DataGridTextColumn
+                                        Header="Id" Binding="{Binding Id}"/>
+                                <DataGridTextColumn
+                                        Header="Фамилия Имя" Binding="{Binding Name}"/>
+                                <DataGridTextColumn
+                                        Header="Номер телефона" Binding="{Binding Phone}"/>
+                                <DataGridTextColumn
+                                        Header="Дата рождения" Binding="{Binding DateOfBorn}"/>
+                        </DataGrid.Columns>
+                </DataGrid>
+        </Grid>
+</Border>

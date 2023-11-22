@@ -1,0 +1,56 @@
+<Grid xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wd="clr-namespace:HealPill.Widgets"
+        mc:Ignorable="d"
+        Width="250"
+        x:Class="HealPill.Widgets.NavBar"
+        Background="{StaticResource Secondary}"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Stretch"
+        RowDefinitions="60,*">
+        
+        <Label
+            Content="HealPill"
+            FontSize="20"
+            FontWeight="Medium"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"/>
+        
+        <StackPanel
+            Orientation="Vertical"
+            Grid.Row="1">
+            
+            <Border
+                CornerRadius="10"
+                Height="2"
+                Margin="20,0,20,10"
+                Background="#C6C6C6"></Border>
+            
+            <wd:NavBarBtn 
+                Name="ClientsBtn"
+                Content="Посетители"
+                PointerPressed="ClientsBtn_OnPointerPressed"/>
+            
+            <wd:NavBarBtn 
+                Name="TimeTableBtn"
+                Content="Расписание"
+                PointerPressed="TimeTableBtn_OnPointerPressed"/>
+            
+            <wd:NavBarBtn 
+                Name="MebCardBtn"
+                Content="Мед карты"
+                PointerPressed="MebCardBtn_OnPointerPressed"/>
+            
+            <wd:NavBarBtn 
+                Name="StatBtn"
+                Content="Статистика"
+                PointerPressed="StatBtn_OnPointerPressed"/>
+            
+            <wd:NavBarBtn 
+                Name="ReportBtn"
+                Content="Отчет"
+                PointerPressed="ReportBtn_OnPointerPressed"/>
+        </StackPanel>
+</Grid>

@@ -1,0 +1,90 @@
+<Border xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:HealPill.Database"
+        mc:Ignorable="d"
+        x:Class="HealPill.Widgets.WorkTime"
+        Background="{StaticResource Primary}"
+        VerticalAlignment="Stretch"
+        HorizontalAlignment="Stretch"
+        CornerRadius="25"
+        MinWidth="100"
+        MinHeight="100"
+        Margin="50,0,50,0">
+        
+        <Border.Effect>
+                <DropShadowEffect
+                        Opacity=".4"
+                        BlurRadius="30"/>
+        </Border.Effect>
+        
+        <Grid
+                ColumnDefinitions="*, *"
+                RowDefinitions="auto, *">
+                
+                <Label
+                        Name="DayOfWeek_Label"
+                        Content="День недели: "
+                        FontWeight="Medium"
+                        Margin="30"
+                        VerticalAlignment="Center"/>
+                
+                <DataGrid
+                        Margin="50, 0, 50, 30"
+                        Name="Times_DataGrid"
+                        Grid.Row="1"
+                        x:DataType="models:TimeTable"
+                        IsReadOnly="True">
+                        <DataGrid.Columns>
+                                <DataGridTextColumn
+                                        Header="С" Binding="{Binding Start}"/>
+                                <DataGridTextColumn
+                                        Header="По" Binding="{Binding End}"/>
+                        </DataGrid.Columns>
+                </DataGrid>
+                
+                <StackPanel
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        HorizontalAlignment="Center"
+                        Margin="0, 0,30, 30"
+                        Spacing="10"
+                        Orientation="Vertical">
+                        
+                        <StackPanel
+                                Spacing="10">
+                                <TimePicker
+                                        Name="Start_TimePicker"/>
+                                <TimePicker
+                                        Name="End_TimePicker"/>
+                        </StackPanel>
+                        
+                        <StackPanel
+                                Spacing="10"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+                                <Button
+                                        Name="AddBtn"
+                                        Content="Добавить"
+                                        FontWeight="Medium"
+                                        Background="{StaticResource Accent}"
+                                        Foreground="{StaticResource Primary}"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Right"
+                                        Padding="15,10,15,10"
+                                        Click="AddBtn_OnClick"/>
+                        
+                                <Button
+                                        Name="DelBtn"
+                                        Content="Удалить"
+                                        FontWeight="Medium"
+                                        Background="{StaticResource RedAccent}"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Right"
+                                        Padding="15,10,15,10"
+                                        Click="DelBtn_OnClick"/>
+                        </StackPanel>
+                </StackPanel>
+        </Grid>
+</Border>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="HealPill/App.axaml" value="HealPill/HealPill.csproj" />
+        <entry key="HealPill/AutorizeWindow.axaml" value="HealPill/HealPill.csproj" />
+        <entry key="HealPill/MainWindow.axaml" value="HealPill/HealPill.csproj" />
+        <entry key="HealPill/Widgets/ClientTab.axaml" value="HealPill/HealPill.csproj" />
+        <entry key="HealPill/Widgets/ClientsTab.axaml" value="HealPill/HealPill.csproj" />
+        <entry key="HealPill/Widgets/MakeAppointmentTab.axaml" value="HealPill/HealPill.csproj" />
+        <entry key="HealPill/Widgets/MedCardTab.axaml" value="HealPill/HealPill.csproj" />
+        <entry key="HealPill/Widgets/MedCardsTab.axaml" value="HealPill/HealPill.csproj" />
+        <entry key="HealPill/Widgets/MedicinesList.axaml" value="HealPill/HealPill.csproj" />
+        <entry key="HealPill/Widgets/NavBar.axaml" value="HealPill/HealPill.csproj" />
+        <entry key="HealPill/Widgets/NavBarBtn.axaml" value="HealPill/HealPill.csproj" />
+        <entry key="HealPill/Widgets/TimeTableTab.axaml" value="HealPill/HealPill.csproj" />
+        <entry key="HealPill/Widgets/WorkTime.axaml" value="HealPill/HealPill.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

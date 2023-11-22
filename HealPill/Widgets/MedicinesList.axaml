@@ -1,0 +1,37 @@
+<Border xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:HealPill.Database"
+        mc:Ignorable="d"
+        x:Class="HealPill.Widgets.MedicinesList"
+        Background="{StaticResource Primary}"
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch"
+        Grid.ColumnSpan="10"
+        Grid.RowSpan="10"
+        Margin="150"
+        CornerRadius="25"
+        IsVisible="False">
+        
+        <Border.Effect>
+                <DropShadowEffect
+                        Opacity=".5"
+                        BlurRadius="30"/>
+        </Border.Effect>
+        
+        <DataGrid
+                Name="Medicines_DataGrid"
+                x:DataType="models:Medicine"
+                IsReadOnly="True"
+                DoubleTapped="InputElement_OnDoubleTapped">
+                <DataGrid.Columns>
+                        <DataGridTextColumn
+                                Header="Id" Binding="{Binding Id}"/>
+                        <DataGridTextColumn
+                                Header="Название" Binding="{Binding Name}"/>
+                        <DataGridTextColumn
+                                Header="Цена" Binding="{Binding Price}"/>
+                </DataGrid.Columns>
+        </DataGrid>
+</Border>

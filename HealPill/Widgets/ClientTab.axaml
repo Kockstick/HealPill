@@ -1,0 +1,204 @@
+<Border 
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:HealPill.Database"
+        xmlns:wd="clr-namespace:HealPill.Widgets"
+        mc:Ignorable="d"
+        x:Class="HealPill.Widgets.ClientTab"
+        Background="{StaticResource Primary}"
+        VerticalAlignment="Stretch"
+        HorizontalAlignment="Stretch"
+        MinWidth="1200"
+        MinHeight="100"
+        CornerRadius="25,0,0,25">
+        
+        <Border.Effect>
+                <DropShadowEffect
+                        Opacity=".5"
+                        BlurRadius="30"/>
+        </Border.Effect>
+        
+        <Grid
+                RowDefinitions="100, auto, auto, *">
+                
+                <Label
+                        Name="Name_Label"
+                        Content="Фамилия Имя"
+                        FontSize="20"
+                        FontWeight="Medium"
+                        Margin="30"
+                        VerticalAlignment="Center"/>
+                
+                <StackPanel
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Margin="30"
+                        Orientation="Horizontal"
+                        Spacing="10">
+                        
+                        <Button
+                                Name="SaveBtn"
+                                Content="Сохранить"
+                                FontWeight="Medium"
+                                Background="{StaticResource Accent}"
+                                Foreground="{StaticResource Primary}"
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Padding="15,10,15,10"
+                                Click="SaveBtn_OnClick"/>
+                        
+                        <Button
+                                Name="CanselBtn"
+                                Content="Отменить"
+                                FontWeight="Medium"
+                                Background="{StaticResource RedAccent}"
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Padding="15,10,15,10"
+                                Click="CanselBtn_OnClick"/>
+                </StackPanel>
+                
+                <StackPanel
+                        Grid.Row="1"
+                        Margin="50,0,0, 30"
+                        Spacing="15">
+                        <StackPanel
+                                Orientation="Horizontal"
+                                Spacing="20">
+                                <Label
+                                        Name="DateOfBorn_Label"
+                                        Content="21.68.2116"
+                                        FontWeight="Medium"/>
+                                <Label
+                                        Name="Phone_Label"
+                                        Content="89035493354"
+                                        FontWeight="Medium"/>
+                        </StackPanel>
+                        
+                        <StackPanel
+                                Orientation="Horizontal"
+                                Spacing="20">
+                                <Label
+                                        Name="DateRequest_Label"
+                                        Content="Дата обращения: "
+                                        FontWeight="Medium"/>
+                                <Label
+                                        Name="DateVisit_Label"
+                                        Content="Дата записи: "
+                                        FontWeight="Medium"/>
+                        </StackPanel>
+                        
+                        <StackPanel
+                                Orientation="Horizontal"
+                                Spacing="0">
+                                <Label
+                                        Content="Диагноз - "
+                                        FontWeight="Medium"/>
+                                <ComboBox
+                                        Name="Diseases_ComboBox"
+                                        MinWidth="200"
+                                        FontWeight="Medium">
+                                        <ComboBox.ItemTemplate>
+                                                <DataTemplate
+                                                        x:DataType="models:Disease">
+                                                        <TextBlock
+                                                                Text="{Binding Name}"/>
+                                                </DataTemplate>
+                                        </ComboBox.ItemTemplate>
+                                </ComboBox>
+                        </StackPanel>
+                        
+                        <StackPanel
+                                Orientation="Horizontal">
+                                <Label
+                                        Content="Окончание больничного - "
+                                        FontWeight="Medium"/>
+                                <DatePicker
+                                        Name="DateEndHeal_TimePicker"
+                                        FontWeight="Medium"/>
+                        </StackPanel>
+                </StackPanel>
+                
+                <StackPanel
+                        Margin="50, 0, 50, 50"
+                        Grid.Row="2">
+                        
+                        <Grid>
+                                <Label
+                                        FontWeight="Medium"
+                                        Content="Лекарства"
+                                        VerticalAlignment="Bottom"
+                                        HorizontalAlignment="Left"/>
+                                
+                                <StackPanel
+                                        Orientation="Horizontal"
+                                        HorizontalAlignment="Right"
+                                        Spacing="10">
+                                        
+                                        <Button
+                                                Name="AddBtn"
+                                                Content="+"
+                                                FontWeight="Medium"
+                                                Background="{StaticResource Accent}"
+                                                Foreground="{StaticResource Primary}"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Padding="10,5,10,5"
+                                                Click="AddBtn_OnClick"/>
+                        
+                                        <Button
+                                                Name="RemoveBtn"
+                                                Content="-"
+                                                FontWeight="Medium"
+                                                Background="{StaticResource RedAccent}"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Padding="10,5,10,5"
+                                                Click="RemoveBtn_OnClick"/>
+                                </StackPanel>
+                        </Grid>
+                        
+                        <DataGrid
+                                Name="Medicines_DataGrid"
+                                Grid.Row="2"
+                                x:DataType="models:Medicines"
+                                IsReadOnly="True">
+                                <DataGrid.Columns>
+                                        <DataGridTextColumn
+                                                Header="Id" Binding="{Binding Id}"/>
+                                        <DataGridTextColumn
+                                                Header="Название" Binding="{Binding Medicine.Name}"/>
+                                        <DataGridTextColumn
+                                                Header="Цена" Binding="{Binding Medicine.Price}"/>
+                                </DataGrid.Columns>
+                        </DataGrid>
+                </StackPanel>
+                
+                <DataGrid
+                        Margin="50, 0, 50, 0"
+                        Name="Treatments_DataGrid"
+                        Grid.Row="3"
+                        x:DataType="models:Treatment"
+                        IsReadOnly="True">
+                        <DataGrid.Columns>
+                                <DataGridTextColumn
+                                        Header="Id" Binding="{Binding Id}"/>
+                                <DataGridTextColumn
+                                        Header="Доктор" Binding="{Binding Worker.Name}"/>
+                                <DataGridTextColumn
+                                        Header="Дата записи" Binding="{Binding DateVisit}"/>
+                                <DataGridTextColumn
+                                        Header="Дата посещения" Binding="{Binding DateGetRecept}"/>
+                                <DataGridTextColumn
+                                        Header="Болезнь" Binding="{Binding Disease.Name}"/>
+                                <DataGridTextColumn
+                                        Header="Дата окончания больничного" Binding="{Binding DateEndHeal}"/>
+                        </DataGrid.Columns>
+                </DataGrid>
+                
+                <wd:MedicinesList
+                        Name="MedicinesList"/>
+        </Grid>
+</Border>

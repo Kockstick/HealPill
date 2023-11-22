@@ -1,0 +1,82 @@
+<Border 
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:HealPill.Database"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="HealPill.Widgets.MakeAppointmentTab"
+        Background="{StaticResource Primary}"
+        VerticalAlignment="Stretch"
+        HorizontalAlignment="Stretch"
+        MinWidth="1200"
+        MinHeight="100"
+        CornerRadius="25,0,0,25">
+        
+        <Border.Effect>
+                <DropShadowEffect
+                        Opacity=".5"
+                        BlurRadius="30"/>
+        </Border.Effect>
+        
+        <Grid
+                RowDefinitions="100, *">
+                
+                <Label
+                        Content="Записать"
+                        FontSize="20"
+                        FontWeight="Medium"
+                        Margin="30"
+                        VerticalAlignment="Center"/>
+                
+                <StackPanel
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Margin="30"
+                        Orientation="Horizontal"
+                        Spacing="10">
+                        
+                        <Button
+                                Name="SaveBtn"
+                                Content="Сохранить"
+                                FontWeight="Medium"
+                                Background="{StaticResource Accent}"
+                                Foreground="{StaticResource Primary}"
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Padding="15,10,15,10"
+                                Click="SaveBtn_OnClick"/>
+                        
+                        <Button
+                                Name="CanselBtn"
+                                Content="Отменить"
+                                FontWeight="Medium"
+                                Background="{StaticResource RedAccent}"
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Padding="15,10,15,10"
+                                Click="CanselBtn_OnClick"/>
+                </StackPanel>
+                
+                <StackPanel
+                        Margin="50,0,50,0"
+                        Grid.Row="1">
+                        <StackPanel
+                                Orientation="Horizontal">
+                                <Label
+                                        Content="Клиент - "/>
+                                <ComboBox
+                                        Name="MedCards_ComboBox"
+                                        MinWidth="200">
+                                        <ComboBox.ItemTemplate>
+                                                <DataTemplate
+                                                        x:DataType="models:MedCard">
+                                                        <TextBlock
+                                                                Text="{Binding Name}"/>
+                                                </DataTemplate>
+                                        </ComboBox.ItemTemplate>
+                                </ComboBox>
+                        </StackPanel>
+                </StackPanel>
+        </Grid>
+</Border>

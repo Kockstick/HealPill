@@ -1,0 +1,111 @@
+<Border 
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="clr-namespace:HealPill.Database"
+    mc:Ignorable="d"
+    x:Class="HealPill.Widgets.MedCardTab"
+    Background="{StaticResource Primary}"
+    VerticalAlignment="Stretch"
+    HorizontalAlignment="Stretch"
+    MinWidth="1200"
+    MinHeight="100"
+    CornerRadius="25,0,0,25">
+        
+    <Border.Effect>
+        <DropShadowEffect
+            Opacity=".5"
+            BlurRadius="30"/>
+    </Border.Effect>
+    
+    <Grid
+        RowDefinitions="100, 80, *">
+        
+        <Label
+                Content="Медицинская карта"
+                FontSize="20"
+                FontWeight="Medium"
+                Margin="30"
+                VerticalAlignment="Center"/>
+        
+        <StackPanel
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Margin="30"
+                Orientation="Horizontal"
+                Spacing="10">
+                        
+                <Button
+                        Name="SaveBtn"
+                        Content="Сохранить"
+                        FontWeight="Medium"
+                        Background="{StaticResource Accent}"
+                        Foreground="{StaticResource Primary}"
+                        VerticalAlignment="Center"
+                        FontSize="18"
+                        Padding="15,10,15,10"
+                        Click="SaveBtn_OnClick"/>
+                        
+                <Button
+                        Name="CanselBtn"
+                        Content="Назад"
+                        FontWeight="Medium"
+                        Background="{StaticResource RedAccent}"
+                        VerticalAlignment="Center"
+                        FontSize="18"
+                        Padding="15,10,15,10"
+                        Click="CanselBtn_OnClick"/>
+        </StackPanel>
+        
+        <StackPanel
+                Grid.Row="1"
+                Orientation="Horizontal"
+                Margin="50,0,50,0"
+                Spacing="10">
+                
+                <TextBox
+                        Name="Name_TextBox"
+                        VerticalAlignment="Center"
+                        FontWeight="Medium"
+                        Padding="10"
+                        Watermark="Фамилия Имя"/>
+                
+                <TextBox
+                        Name="Phone_TextBox"
+                        VerticalAlignment="Center"
+                        FontWeight="Medium"
+                        Padding="10"
+                        Watermark="Номер телефона"/>
+                
+                <DatePicker
+                        Name="DateOfBorn_DatePicker"
+                        VerticalAlignment="Center"
+                        FontWeight="Medium"
+                        Padding="15"
+                        FontSize="15"/>
+        </StackPanel>
+        
+        <DataGrid
+                Margin="50, 0, 50, 0"
+                Name="Treatments_DataGrid"
+                Grid.Row="2"
+                x:DataType="models:Treatment"
+                IsReadOnly="True">
+                <DataGrid.Columns>
+                        <DataGridTextColumn
+                                Header="Id" Binding="{Binding Id}"/>
+                        <DataGridTextColumn
+                                Header="Доктор" Binding="{Binding Worker.Name}"/>
+                        <DataGridTextColumn
+                                Header="Дата записи" Binding="{Binding DateVisit}"/>
+                        <DataGridTextColumn
+                                Header="Дата посещения" Binding="{Binding DateGetRecept}"/>
+                        <DataGridTextColumn
+                                Header="Болезнь" Binding="{Binding Disease.Name}"/>
+                        <DataGridTextColumn
+                                Header="Дата окончания больничного" Binding="{Binding DateEndHeal}"/>
+                </DataGrid.Columns>
+        </DataGrid>
+        </Grid>
+</Border>
